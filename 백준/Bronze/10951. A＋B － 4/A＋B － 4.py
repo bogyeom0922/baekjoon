@@ -1,6 +1,10 @@
+import sys
 while True:
     try:
-        A, B = map(int, input().split())
-        print(A + B)
-    except EOFError:
+        A,B = map(int, sys.stdin.readline().split())
+        if A=="":
+            break
+        else:
+            print(A+B)
+    except:
         break
