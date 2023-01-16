@@ -1,16 +1,15 @@
 import sys
-
-m=n=count=0
-
-read = sys.stdin.readline
-num = int(read())
-before_N = num
-
+n = int(sys.stdin.readline())
+a = int(n/10)
+b = int(n%10)
+sum = (a+b)%10 + b*10
+count=1
 while True:
-    count+=1
-    new_N = (before_N % 10) * 10 + ((before_N // 10) + (before_N % 10)) % 10
-    if new_N == num:
+    if sum == n:
+        print(count)
         break
-    before_N = new_N
-
-print(count)
+    else:
+        a = int(sum/10)
+        b = int(sum%10)
+        sum = (a+b)%10 + b*10
+        count += 1
