@@ -1,34 +1,50 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-	
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		
 		for(int i=0; i<N; i++) {
-			String[] s = br.readLine().split("");
-			int count = 0;
-			String o = null;
-			for(int j=0; j<s.length; j++) {
-				if(s[j].equals("(")) {
-					count++;
-				} else if(s[j].equals(")")) {
-					count--;
-				}
-				if(count<0) { o = "NO"; }
-			}
-			
-			if(count==0 && o!="NO") {
-				System.out.println("YES");
-			} else {
-				System.out.println("NO");
-			}
+			String s = br.readLine();
+			System.out.println(solve(s));
 		}
 		
 		br.close();
+	}
+	
+	public static String solve(String s) {
+		
+		Stack<Character> stack = new Stack<>();
+		
+		for (int i=0; i<s.length(); i++) {
+			
+			char c = s.charAt(i);
+			
+			if( c == '(') {
+				stack.push(c);
+			}
+			
+			if( c == ')' ) {
+				if( stack.isEmpty() ) {
+					return "NO";
+				}
+				else {
+					stack.pop();
+				}
+			}
+		}
+		
+		if( !stack.isEmpty() ) {
+			return "NO";
+		} return "YES";
 		
 	}
 
+	
 }
