@@ -1,2 +1,4 @@
-# baekjoon
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+baekjoon / programmers
+
+오답노트
+<a href="https://dingco-ringco.tistory.com/">https://dingco-ringco.tistory.com/</a>
